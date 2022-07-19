@@ -1,0 +1,68 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="apal" id="Create Table Movie">
+        <createTable tableName="MOVIE">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MOVIE_ID"/>
+            </column>
+            <column name="TITLE" type="VARCHAR2(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AUTHOR" type="VARCHAR2(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="apal" id="Add new columns to table MOVIE(DURATION,GENRE)">
+        <addColumn
+                   tableName="MOVIE" >
+            <column name="duration"
+                    type="varchar(255)"/>
+            <column
+                    name="genre"
+                    type="varchar(50)" >
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="apal" id="Drop author">
+        <dropColumn tableName="MOVIE">
+            <column name="author"/>
+        </dropColumn>
+    </changeSet>
+
+    <changeSet author="apal" id="Add new columns to table MOVIE(FK_AUTHOR_ID)">
+        <addColumn
+                tableName="MOVIE" >
+            <column
+                    name="FK_AUTHOR_ID"
+                    type="BIGINT " >
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="apal" id="Add new columns to table MOVIE(image)">
+        <addColumn
+                tableName="MOVIE" >
+            <column
+                    name="image"
+                    type="VARCHAR2(255)" >
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="apal" id="Add new columns to table MOVIE(Description)">
+        <addColumn
+                tableName="MOVIE" >
+            <column
+                    name="description"
+                    type="VARCHAR2(255)" >
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
