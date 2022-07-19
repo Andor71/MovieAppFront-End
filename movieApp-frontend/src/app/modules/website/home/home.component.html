@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<section id="hero" class="position-relative">
+  <div class="hero-text row justify-content-center align-items-center">
+    <div class="col-3 align-items-center d-flex flex-column hero-text-text">
+        <h1 class="text-center text-light">MovieApp</h1>
+        <a   href="#contact">Contact</a>
+    </div>
+  </div>
+ </section>
+ <section id="movies" class="pt-5">
+     <div class="container">
+         <h1 class="text-center mb-3">Movies</h1>
+         <app-preloader *ngIf="movieLoading"></app-preloader>
+         <div class="row justify-content-center" *ngIf="!movieLoading">
+            <div class="col-12 col-sm-6 col-md-3" *ngFor="let movie of movies">
+                <app-movie-card [movie]="movie"></app-movie-card>
+            </div>
+         </div>
+     </div>
+ </section>
+ <section id="author" class="pt-5">
+     <div class="container">
+         <h1 class="text-center mb-3">Authors</h1>
+         <app-preloader *ngIf="movieLoading"></app-preloader>
+         <div class="row justify-content-center" *ngIf="!movieLoading">
+            <div class="col-12 col-sm-6 col-md-3" *ngFor="let author of authors">
+                <app-author-card [author]="author"></app-author-card>
+            </div>
+         </div>
+      </div>
+ </section>
+ <section id="contact">
+  <div class="container form my-5">
+      <h1 class="text-center mt-2">Contact</h1>
+      <hr>
+      <div class="row  justify-content-center">
+          <div class="col-4">
+              <form>
+                  <div class="form-group my-3">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Name...">
+                  </div>
+                  <div class="form-group  my-3">
+                      <label for="email">Email</label>
+                      <input type="Email" class="form-control" id="email" placeholder="Enter Your Email...">
+                  </div>
+                  <div class="form-group my-3">
+                      <label for="exampleFormControlTextarea1">Message</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="3"></textarea>
+                    </div>
+                  <div class="d-flex justify-content-end  my-3">
+                      <button type="submit" class="btn btn-primary ">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+<footer class="d-flex flex-wrap justify-content-between align-items-center">
+  <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#1f1f21" fill-opacity="1" d="M0,192L48,170.7C96,149,192,107,288,96C384,85,480,107,576,144C672,181,768,235,864,224C960,213,1056,139,1152,128C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+  </svg>
+  <div class="col-md-4 d-flex align-items-center justify-content-center">
+  </div>
+
+</footer>

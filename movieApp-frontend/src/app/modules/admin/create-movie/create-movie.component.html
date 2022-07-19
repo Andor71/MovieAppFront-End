@@ -1,0 +1,25 @@
+<div class="container mt-2">
+<form>
+    <div class="form-group">
+        <label for="">Title</label>
+        <input type="text" class="form-control" placeholder="Title" [(ngModel)]="newMovie.title" name="title">
+    </div>
+    <div class="form-group">
+        <label for="">Duration</label>
+        <input type="text" class="form-control" placeholder="Duration"  [(ngModel)]="newMovie.duration" name="duration">
+    </div>
+    <div class="form-group">
+        <label for="">Genre</label>
+        <input type="text" class="form-control" placeholder="Genre"  [(ngModel)]="newMovie.genre" name="genre">
+    </div>
+    <div class="form-group">
+        <label for="">Select author</label>
+        <select class="form-control" id=""  [(ngModel)]="selectedAuthorId" name="author">
+            <option [value]="author.id" *ngFor="let author of authors">{{author.name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="createMovie()">Submit</button>
+    </div>
+</form>
+</div>

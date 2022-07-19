@@ -1,0 +1,62 @@
+
+<section id="info" *ngIf="movie">
+  <div class="container">
+    <div class="row mt-5">
+      <a  routerLink=""><span class="material-symbols-outlined icon text-dark">reply</span></a>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card card-info my-5 p-4">
+          <h1 class="card-title text-center display-5">{{movie.title}}</h1>
+          <hr>
+          <div class="card-body">
+              <p class="card-text  px-5">{{movie.description}}</p>
+          </div>
+          <div class="card-body d-flex align-items-center justify-content-center">
+              <span class="material-symbols-outlined me-3 icon">favorite</span>
+              <h3>Add to favorites</h3>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="comments">
+  <div class="container">
+      <div class="row">
+          <div class="comments">
+              <div class="col-12" *ngFor="let comment of comments">
+                  <app-comment [comment]="comment"></app-comment>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="form">
+  <div class="container">
+      <div class="row justify-content-start">
+          <div class="col-6">
+              <form>
+                  <div class="form-group my-3">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" [(ngModel)]="newComment.user.userName" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="form-group my-3">
+                      <label for="exampleFormControlTextarea1">Message</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="3" [(ngModel)]="newComment.comment" [ngModelOptions]="{standalone: true}"></textarea>
+                  </div>
+                  <div class="d-flex justify-content-end  my-3">
+                      <button type="submit" class="btn btn-primary" (click)="sendComment()">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#1f1f21" fill-opacity="1" d="M0,192L48,170.7C96,149,192,107,288,96C384,85,480,107,576,144C672,181,768,235,864,224C960,213,1056,139,1152,128C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+
+</svg>

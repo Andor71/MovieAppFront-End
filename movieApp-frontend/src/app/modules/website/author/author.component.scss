@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Roboto+Mono:ital@0;1&family=Roboto:wght@300&display=swap');
+:root{
+    --primary-c :#0BB4E3;
+}
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+}
+span{
+    font-size: 3rem;
+}
+hr{
+    height: 5px !important;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    background: var(--primary-c);
+    margin: .25rem auto 0 auto !important;
+    margin-bottom: 20px;
+    border: 0;
+}
+
+.card{
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.icon{
+    font-size: 5rem;
+}
+.comments{
+    padding: 2rem;
+    border-top: 2px solid var(--primary-c);
+    border-left: 2px solid var(--primary-c);
+    background: rgb(11,180,227);
+    background: linear-gradient(130deg, rgba(11,180,227,1) 0%, rgba(49,154,185,0.4206057422969187) 20%, rgba(97,120,131,0) 60%);
+}
+
+.comments .row{
+    border-bottom: 2px solid var(--primary-c);
+}
+.wave{
+    position: relative;
+    z-index: -5;
+    margin-top: -80px;
+}
+.card-overlay{
+    text-align: center;
+    display: none;
+    top:50%;
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+    opacity: .8;
+    text-decoration: none;
+    color: white !important;
+    font-size: 3rem;
+}
+.card{
+    cursor: pointer;
+}
+.card:hover .card-overlay{
+    display: block;
+
+}
