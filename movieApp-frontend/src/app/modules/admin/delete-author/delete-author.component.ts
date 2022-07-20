@@ -6,18 +6,16 @@ import { AuthorService } from 'src/app/core/services/author.service';
 import { MovieService } from 'src/app/core/services/movie.service';
 
 @Component({
-  selector: 'app-create-movie',
-  templateUrl: './create-movie.component.html',
-  styleUrls: ['./create-movie.component.scss'],
+  selector: 'app-delete-author',
+  templateUrl: './delete-author.component.html',
+  styleUrls: ['./delete-author.component.scss']
 })
-export class CreateMovieComponent implements OnInit {
+export class DeleteAuthorComponent implements OnInit {
   selectedAuthorId: number;
   authors: Array<AuthorDto>;
-  newMovie: MovieDto = new MovieDto();
 
   constructor(
     private authorService: AuthorService,
-    private movieService: MovieService,
     private router: Router
   ) {}
 
@@ -32,21 +30,14 @@ export class CreateMovieComponent implements OnInit {
     });
   }
 
-  createMovie() {
-    this.newMovie.image =
-      'poster-joker' + Math.floor(Math.random() * 3 + 1) + '.jpg';
-
-    this.newMovie.authorDto = this.authors.filter(
-      (author) => author.id == this.selectedAuthorId
-    )[0];
-    this.movieService.createMovie(this.newMovie).subscribe({
-      next: (movie) => {
+  deleteAuthor(){
+    this.authorService.deleteAuthor(this.selectedAuthorId).subscribe({
+      next: () => {
         this.router.navigateByUrl('');
       },
-      error: (error) => {
-        console.log(error);
+      error: (e) => {
+        console.log(e);
       },
     });
   }
-
 }

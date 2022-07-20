@@ -1,4 +1,4 @@
-<section id="movie-info">
+<section id="movie-info"*ngIf="author">
   <div class="container">
       <div class="row mt-5">
           <a routerLink=""><span class="material-symbols-outlined icon text-dark">reply</span></a>
@@ -25,26 +25,13 @@
       </div>
     </div>
 </section>
-<section id="comments">
+<section id="comments" *ngIf="author">
   <div class="container">
       <h1 class="text-center">Other Films</h1>
       <hr>
       <div class="row justify-content-center">
-          <div class="col-12 col-lg-3 col-sm-6">
-              <div class="card my-2 position-relative d-flex justify-content-center align-items-center">
-                  <a class="card-overlay position-absolute text-center" href="movieinfo.html">More info!</a>
-                  <img class="card-img-top" src="/MoviaAPPBootstrap/img/card.jpg" alt="Card image cap">
-              </div>
-          </div>
-          <div class="col-12 col-lg-3 col-sm-6">
-              <div class="card my-2" >
-                  <img class="card-img-top" src="/MoviaAPPBootstrap/img/author.jpg" alt="Card image cap">
-              </div>
-          </div>
-          <div class="col-12 col-lg-3 col-sm-6">
-              <div class="card my-2" >
-                  <img class="card-img-top" src="/MoviaAPPBootstrap/img/author.jpg" alt="Card image cap">
-              </div>
+          <div class="col-12 col-lg-3 col-sm-6" *ngFor="let movie of movies">
+              <app-movie-card [movie]="movie"></app-movie-card>
           </div>
       </div>
   </div>

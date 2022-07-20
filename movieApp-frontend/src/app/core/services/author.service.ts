@@ -21,4 +21,8 @@ export class AuthorService {
   createAuthor(authorDto: AuthorDto): Observable<AuthorDto> {
     return this.http.post<AuthorDto>("http://localhost:8080/author/create", authorDto);
   }
+
+  deleteAuthor(id:number){
+    return this.http.delete("http://localhost:8080/author/delete/"+id);
+  }
 }

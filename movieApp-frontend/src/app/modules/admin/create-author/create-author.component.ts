@@ -17,7 +17,7 @@ export class CreateAuthorComponent implements OnInit {
 
   createAuthor() {
     this.newAuthor.image =
-      'person' + Math.floor(Math.random() * 4 + 1) + '.jpg';
+      'poster-author' + Math.floor(Math.random() * 3 + 1) + '.jpg';
 
     this.authorService.createAuthor(this.newAuthor).subscribe({
       next: (author) => {
@@ -29,5 +29,4 @@ export class CreateAuthorComponent implements OnInit {
     });
   }
 
-  printAuthor() {}
 }
