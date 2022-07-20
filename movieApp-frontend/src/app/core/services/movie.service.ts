@@ -18,9 +18,11 @@ export class MovieService {
   getMovie(id: number): Observable<MovieDto>{
     return this.http.get<MovieDto>("http://localhost:8080/movie/"+id);
   }
-
   createMovie(movieDto: MovieDto): Observable<MovieDto> {
     return this.http.post<MovieDto>("http://localhost:8080/movie/create", movieDto)
+  }
+  deleteMovie(selecetedMovieId: number) {
+    return this.http.delete("http://localhost:8080/movie/delete/"+selecetedMovieId);
   }
 
 }
