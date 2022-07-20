@@ -12,7 +12,9 @@ export class MovieService {
   getAllMovies(): Observable<Array<MovieDto>>{
     return this.http.get<Array<MovieDto>>("http://localhost:8080/movie/get-all");
   }
-
+  getMoviesByAuthorId(id:number):Observable<Array<MovieDto>>{
+    return this.http.get<Array<MovieDto>>("http://localhost:8080/movie/author/"+id);
+  }
   getMovie(id: number): Observable<MovieDto>{
     return this.http.get<MovieDto>("http://localhost:8080/movie/"+id);
   }

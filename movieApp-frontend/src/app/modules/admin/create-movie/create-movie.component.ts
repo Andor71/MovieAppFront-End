@@ -33,7 +33,8 @@ export class CreateMovieComponent implements OnInit {
   }
 
   createMovie() {
-    this.newMovie.image = 'movie1.jpg';
+    this.newMovie.image =
+      'poster-joker' + Math.floor(Math.random() * 3 + 1) + '.jpg';
 
     this.newMovie.authorDto = this.authors.filter(
       (author) => author.id == this.selectedAuthorId
