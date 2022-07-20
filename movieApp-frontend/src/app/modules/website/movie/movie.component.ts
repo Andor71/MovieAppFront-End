@@ -23,6 +23,7 @@ export class MovieComponent implements OnInit {
   constructor(private route: ActivatedRoute, private movieService: MovieService, private commentService: CommentService) {
     this.id = this.route.snapshot.params['id'];
     this.newComment.user= this.newUser;
+
   }
 
   ngOnInit(): void {
@@ -53,7 +54,10 @@ export class MovieComponent implements OnInit {
   }
 
   sendComment(){
-    this.commentService.createComment(this.newComment).subscribe({
+
+    this.newComment.movie = this.movie;
+    console.log(this.newComment);
+    this.commentService.createCommentByName(this.newComment).subscribe({
       next:(comment) =>{
         this.comments.push(comment);
       },

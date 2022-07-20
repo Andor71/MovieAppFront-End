@@ -16,4 +16,8 @@ export class CommentService {
   createComment(commentDto:CommentDto):Observable<CommentDto>{
     return this.http.post<CommentDto>("http://localhost:8080/comment/create",commentDto);
   }
+
+  createCommentByName(commentDto:CommentDto):Observable<CommentDto>{
+    return this.http.post<CommentDto>("http://localhost:8080/comment/createByName",commentDto);
+  }
 }
